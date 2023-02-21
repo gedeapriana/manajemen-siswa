@@ -1,0 +1,13 @@
+{
+    "overrides": [
+        {
+            "files": ["*.blade.php"],
+            "options": {
+                "tabWidth": 2,
+                "parser": "blade"
+            }
+        }
+    ],	
+	"tabWidth": 2,
+	"singleQuote": false
+}
