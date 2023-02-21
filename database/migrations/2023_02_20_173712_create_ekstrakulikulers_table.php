@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ekstrakulikulers', function (Blueprint $table) {
             $table->id();
 						$table->string('nama')->nullable();
+						$table->string('slug')->nullable();
 						$table->string('pembina')->nullable();
 						$table->string('deskripsi')->nullable();
 						$table->integer('batas')->nullable();

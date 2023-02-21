@@ -15,6 +15,7 @@ class EkstrakulikulerSeeder extends Seeder
     {
 			DB::table('ekstrakulikulers')->insert([
 				'nama' => 'Basket',
+				'slug' => 'basket',
 				'pembina' => "Hehe",
 				'deskripsi' => 'Ini deskripsi',
 				'batas' => 100,
@@ -22,6 +23,7 @@ class EkstrakulikulerSeeder extends Seeder
 
 			DB::table('ekstrakulikulers')->insert([
 				'nama' => 'Sepak Bola',
+				'slug' => 'footbal',
 				'pembina' => "Hehe",
 				'deskripsi' => 'Ini deskripsi',
 				'batas' => 100,
@@ -29,6 +31,7 @@ class EkstrakulikulerSeeder extends Seeder
 
 			DB::table('ekstrakulikulers')->insert([
 				'nama' => 'Bulu Tangkis',
+				'slug' => 'badminton',
 				'pembina' => "Hehe",
 				'deskripsi' => 'Ini deskripsi',
 				'batas' => 100,

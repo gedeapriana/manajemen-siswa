@@ -15,6 +15,7 @@ class SiswaSeeder extends Seeder
     {
 			DB::table('siswas')->insert([
 				'nama' => 'I Komang Gede Apriana',
+				'slug' => 'i-komang-gede-apriana',
 				'no_absen' => 1,
 				'jabatan' => 'Ketua',
 				'kelas' => '12A',
@@ -23,6 +24,7 @@ class SiswaSeeder extends Seeder
 			
 			DB::table('siswas')->insert([
 				'nama' => 'Akarsana Hidayat',
+				'slug' => 'akarsana-hidayat',
 				'no_absen' => 2,
 				'jabatan' => 'Ketua',
 				'Kelas' => '12B',
@@ -31,6 +33,7 @@ class SiswaSeeder extends Seeder
 
 			DB::table('siswas')->insert([
 				'nama' => 'Hana Farida',
+				'slug' => 'hana-farida',
 				'no_absen' => 3,
 				'jabatan' => 'Ketua',
 				'kelas' => '12C',

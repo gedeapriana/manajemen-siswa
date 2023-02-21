@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [SiswaController::class, 'index']);
+Route::get('/siswa/{slug}', [SiswaController::class, 'ekstrakulikuler']);
+
 Route::get('/guru', [GuruController::class, 'index']);
 Route::get('/ekstrakulikuler', [EkstrakulikulerController::class, 'index']);
 Route::get('/matapelajaran', [MataPelajaranController::class, 'index']);
