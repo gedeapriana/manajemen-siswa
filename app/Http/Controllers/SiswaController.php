@@ -9,8 +9,14 @@ use Illuminate\Http\Request;
 class SiswaController extends Controller
 {
 	public function index(Request $request) {
-		$keyeord = $request["cari-siswa"];
-		$data = Siswa::with('ekstrakulikuler')->get();
+		$keyword = $request["cari-siswa"];
+		$data = Siswa::with(['ekstrakulikuler', 'kelas'])->where('nama', 'LIKE', '%'.$keyword.'%')
+																					->orWhere('jabatan', 'LIKE', '%'.$keyword.'%')
+																					->orWhereHas('ekstrakulikuler', function($query) use($keyword) {
+																						$query->where('nama', 'LIKE', '%'.$keyword.'%');
+																					})
+																					->get();
+
 		return view('siswa', [
 			'title'=> 'Siswa',
 			'data' => $data

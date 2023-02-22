@@ -1,4 +1,71 @@
 @extends('layouts.schema')
 
 @section('contents')
+ <!-- Jumbotron -->
+  <div class="p-6 my-10 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
+    <form class="w-full md:w-3/4 xl:w-1/2">
+      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input type="search" id="default-search"
+          class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
+          placeholder="Cari Ekstrakulikuler" required name="cari-kelas">
+        <button type="submit"
+          class="text-white absolute right-2.5 bottom-2.5 bg-teal-500 hover:bg-teal-500 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-500 dark:hover:bg-teal-500 dark:focus:ring-teal-500">Search</button>
+      </div>
+    </form>
+
+  </div>
+  <!-- Jumbotron -->
+{{-- cardsection --}}
+  @if (count($data) > 0)
+    <section class="">
+      <div
+        class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
+        @foreach ($data as $kelas)
+          <figure id="__ekstra-card"
+            class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
+            style="background-position: center; background-size: cover;">
+            <h1 id="__ekstra-header" class="text-lg">Kelas <span class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-teal-900 dark:text-teal-300">{{ $kelas->nama }}{{$kelas->rincian}}</span></h1>
+            <p id="__ekstra-subheader" class="text-sm text-slate-400">Wali Kelas</p>
+            <a href="/guru/"
+              class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
+              <div class="h-8 w-8 rounded-full bg-slate-500"></div>
+              <p class="text-slate-500 text-sm">{{ $kelas->guru->nama}}</p>
+            </a>
+            <section class="flex mt-10">
+              <a type="button" href=""
+                class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
+                <i class="bi bi-pencil-square text-lg"></i>
+                Daftar Mahasiswa
+              </a>
+              <button type="button"
+                class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
+                <i class="bi bi-pencil-square text-lg"></i>
+                Ubah
+              </button>
+              <button type="button"
+                class="text-white bg-rose-500 gap-1 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-rose-500 dark:hover:bg-rose-600 dark:focus:ring-rose-500">
+                <i class="bi bi-trash text-lg"></i>
+              </button>
+            </section>
+            </figcaption>
+          </figure>
+        @endforeach
+      </div>
+    </section>
+  @else
+    <section class="w-full flex justify-center items-center">
+      <h1 class="text-xl text-center text-slate-50 rounded-xl p-3 bg-rose-500">Kelas tidak ditemukan...</h1>
+    </section>
+  @endif
+  {{-- cardsection --}}
+
+
 @endsection

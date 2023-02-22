@@ -1,6 +1,7 @@
 @extends('layouts.schema')
 
 @section('contents')
+
   <!-- Jumbotron -->
   <div class="p-6 my-10 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
     <form class="w-full md:w-3/4 xl:w-1/2">
@@ -15,7 +16,7 @@
         </div>
         <input type="search" id="default-search"
           class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
-          placeholder="Cari Ekstrakulikuler" required>
+          placeholder="Cari Ekstrakulikuler" required name="cari-ekstra">
         <button type="submit"
           class="text-white absolute right-2.5 bottom-2.5 bg-teal-500 hover:bg-teal-500 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-500 dark:hover:bg-teal-500 dark:focus:ring-teal-500">Search</button>
       </div>
@@ -25,39 +26,46 @@
   <!-- Jumbotron -->
 
   {{-- cardsection --}}
-  <section class="">
-    <div
-      class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
-      @foreach ($data as $ekstra)
-        <figure id="__ekstra-card"
-          class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
-          style="background-position: center; background-size: cover;">
-          <h1 id="__ekstra-header" class="text-lg">{{ $ekstra->nama }}</h1>
-          <p id="__ekstra-subheader" class="text-sm text-slate-400">Dibina oleh</p>
-          <a href="" class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
-            <div class="h-8 w-8 rounded-full bg-slate-500"></div>
-            <p class="text-slate-500 text-sm">Nama Guru</p>
-          </a>
-          <section class="flex mt-10">
-            <a type="button" href="/siswa/{{ $ekstra->slug }}"
-              class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
-              <i class="bi bi-card-checklist text-lg"></i>
-              Lihat siswa
+  @if (count($data) > 0)
+    <section class="">
+      <div
+        class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
+        @foreach ($data as $ekstra)
+          <figure id="__ekstra-card"
+            class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
+            style="background-position: center; background-size: cover;">
+            <h1 id="__ekstra-header" class="text-lg">{{ $ekstra->nama }}</h1>
+            <p id="__ekstra-subheader" class="text-sm text-slate-400">Dibina oleh</p>
+            <a href="/guru/{{ $ekstra->guru->slug }}"
+              class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
+              <div class="h-8 w-8 rounded-full bg-slate-500"></div>
+              <p class="text-slate-500 text-sm">{{ $ekstra->guru->nama }}</p>
             </a>
-            <button type="button"
-              class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
-              <i class="bi bi-pencil-square text-lg"></i>
-              Ubah
-            </button>
-            <button type="button"
-              class="text-white bg-rose-500 gap-1 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-rose-500 dark:hover:bg-rose-600 dark:focus:ring-rose-500">
-              <i class="bi bi-trash text-lg"></i>
-            </button>
-          </section>
-          </figcaption>
-        </figure>
-      @endforeach
-    </div>
-  </section>
+            <section class="flex mt-10">
+              <a type="button" href="/siswa/{{ $ekstra->slug }}"
+                class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
+                <i class="bi bi-card-checklist text-lg"></i>
+                Lihat siswa
+              </a>
+              <button type="button"
+                class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
+                <i class="bi bi-pencil-square text-lg"></i>
+                Ubah
+              </button>
+              <button type="button"
+                class="text-white bg-rose-500 gap-1 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-rose-500 dark:hover:bg-rose-600 dark:focus:ring-rose-500">
+                <i class="bi bi-trash text-lg"></i>
+              </button>
+            </section>
+            </figcaption>
+          </figure>
+        @endforeach
+      </div>
+    </section>
+  @else
+    <section class="w-full flex justify-center items-center">
+      <h1 class="text-xl text-center text-slate-50 rounded-xl p-3 bg-rose-500">Ekstrakulikuler tidak ditemukan...</h1>
+    </section>
+  @endif
   {{-- cardsection --}}
 @endsection

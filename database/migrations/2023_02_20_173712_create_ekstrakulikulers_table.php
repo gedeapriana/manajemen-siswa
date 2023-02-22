@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
 						$table->string('nama')->nullable();
 						$table->string('slug')->nullable();
-						$table->string('pembina')->nullable();
+						$table->unsignedBigInteger('guru_id')->nullable();
 						$table->string('deskripsi')->nullable();
 						$table->integer('batas')->nullable();
             $table->timestamps();
-        });
+				});
     }
 
     /**
