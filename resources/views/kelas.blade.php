@@ -37,7 +37,8 @@
                 class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-teal-900 dark:text-teal-300">{{ $kelas->nama }}{{ $kelas->rincian }}</span>
             </h1>
             <p id="__ekstra-subheader" class="text-sm text-slate-400">Wali Kelas</p>
-            <a href="/guru/" class="flex dark:bg-slate-700 justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
+            <a href="/guru/{{$kelas->guru->slug}}"
+              class="flex dark:bg-slate-700 justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
               <div class="h-8 w-8 rounded-full bg-slate-500"></div>
               <p class="text-slate-500 text-sm dark:text-slate-100">{{ $kelas->guru->nama }}</p>
             </a>
@@ -63,12 +64,14 @@
       </div>
     </section>
   @else
-    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
+    <main class="grid min-h-full place-items-center bg-white dark:bg-slate-700 py-24 px-6 sm:py-32 lg:px-8">
       <div class="text-center">
         <p class="text-3xl font-semibold text-teal-500">404</p>
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-slate-100">
+          {{ $title }} Tidak Ditemukan
         </h1>
-        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-100">Maaf, {{ $title }} yang anda cari,
+          tidak kami temukan</p>
       </div>
     </main>
   @endif

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
@@ -12,12 +11,20 @@ class GuruController extends Controller
 		$data = Guru::where('nama', 'LIKE', '%'.$keyword.'%')
 							->orWhere('nip', 'LIKE', '%'.$keyword.'%')
 							->orWhere('alamat', 'LIKE', '%'.$keyword.'%')
-							->orWhere('no_telp', 'LIKE', '%'.$keyword.'%')
+							->orWhere('no_telepon', 'LIKE', '%'.$keyword.'%')
 							->orWhere('id', 'LIKE', '%'.$keyword.'%')
 							->get();
 		return view('guru', [
 			'title'=> 'Guru',
 			'data'=> $data
+		]);
+	}
+
+	public function detail($slug) {
+		$data = Guru::with(['kelas', 'pelajaran', 'ekstrakulikuler'])->where('slug', $slug)->get(); 
+		return view('guru-detail', [ 
+			'title' => 'Guru',
+			'data' => $data[0],
 		]);
 	}
 }

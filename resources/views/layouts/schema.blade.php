@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="" id="__html">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,14 @@
       document.documentElement.classList.remove('dark')
     }
   </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
   @vite('resources/css/app.css')
 </head>
 
 <body class="dark:bg-slate-700">
   <div id="root" class="w-full dark:bg-slate-700">
-    <nav id="__navbar-root" class="w-full flex justify-center items-center h-auto dark:bg-slate-800">
+    <nav id="__navbar-root"
+      class="w-full fixed z-10 flex justify-center border-b-2 dark:border-b-0 items-center h-auto bg-slate-50 dark:bg-slate-800">
       <section id="__navbar" class="w-11/12 md:w-10/12 lg:w-9/12 flex justify-between items-center h-16 lg:h-20">
         <h3 id="__navbar-brand" class="font-sans font-bold text-xl text-teal-500">Manajemen Siswa</h3>
         <ul id="__navbar-list" class="gap-2 2xl:gap-6 lg:gap-3 hidden lg:flex ml-auto">
@@ -28,12 +31,14 @@
               class="font-sans text-lg {{ $title == 'Siswa' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}">Siswa</a>
           </li>
           <li>
-            <i class="bi bi-mortarboard-fill {{ $title == 'Guru' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}"></i>
+            <i
+              class="bi bi-mortarboard-fill {{ $title == 'Guru' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}"></i>
             <a href="/guru"
               class="font-sans text-lg {{ $title == 'Guru' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}">Guru</a>
           </li>
           <li>
-            <i class="bi bi-fire {{ $title == 'Ekstrakulikuler' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}"></i>
+            <i
+              class="bi bi-fire {{ $title == 'Ekstrakulikuler' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}"></i>
             <a href="/ekstrakulikuler"
               class="font-sans text-lg {{ $title == 'Ekstrakulikuler' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}">Ekstrakulikuler</a>
           </li>
@@ -45,7 +50,8 @@
               Pelajaran</a>
           </li>
           <li>
-            <i class="bi bi-houses-fill {{ $title == 'Kelas' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}"></i>
+            <i
+              class="bi bi-houses-fill {{ $title == 'Kelas' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}"></i>
             <a href="/kelas"
               class="font-sans text-lg {{ $title == 'Kelas' ? 'text-teal-500 font-bold' : 'text-slate-700 dark:text-slate-200' }}">Kelas</a>
           </li>
@@ -62,7 +68,7 @@
       </section>
     </nav>
 
-    <main id="__main-root" class="w-full dark:bg-slate-700 flex justify-center items-center">
+    <main id="__main-root" class="w-full pt-20 dark:bg-slate-700 flex justify-center items-center">
       <section id="__main" class="w-11/12 md:w-10/12 dark:bg-slate-700 lg:w-9/12 h-20">
         @yield('contents')
       </section>
@@ -70,6 +76,8 @@
   </div>
 
   <script src="{{ asset('js/dark-mode-toggle.js') }}"></script>
+  <script src="{{ asset('js/accordion.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
 
 </html>

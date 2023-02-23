@@ -28,12 +28,12 @@
           </ul>
           <ul class="w-full hidden xl:inline">
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NISN</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn }}</h2>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NIP</h3>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nip }}</h2>
             </li>
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Kelas</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama . $data->kelas->rincian }}</h2>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Lulusan</h3>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->lulusan }}</h2>
             </li>
             <li class="w-full border-b-2  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">No Telepon</h3>
@@ -56,12 +56,12 @@
       <div class="w-full md:w-7/12 overflow-hidden">
         <ul class="w-full md:mx-5 mb-8">
           <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-            <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NISN</h3>
-            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn }}</h2>
+            <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NIP</h3>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nip }}</h2>
           </li>
           <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-            <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Kelas</h3>
-            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama . $data->kelas->rincian }}</h2>
+            <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Lulusan</h3>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->lulusan }}</h2>
           </li>
           <li class="w-full border-b-0  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
             <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">No Telepon</h3>
@@ -82,56 +82,57 @@
   </div>
   <!-- Jumbotron -->
 
-  {{-- Ekstrakulikuler --}}
-  <h1 class="text-xl text-center border-b-0  border-gray-200 border-opacity-100  py-5 text-teal-500 font-bold">
-    Ekstrakulikuler yang diikuti</h1>
-  @if (count($data->ekstrakulikuler) > 0)
-    <section class="">
-      <div
-        class="grid dark:bg-slate-800 rounded-2xl mb-8 border border-gray-200 overflow-hidden shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
-        @foreach ($data->ekstrakulikuler as $ekstra)
-          <figure id="__ekstra-card"
-            class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
-            style="background-position: center; background-size: cover;">
-            <h1 id="__ekstra-header" class="text-lg dark:text-slate-200">{{ $ekstra->nama }}</h1>
-            <p id="__ekstra-subheader" class="text-sm text-slate-400">Dibina oleh</p>
-            <a href="/guru/{{ $ekstra->guru->slug }}"
-              class="flex justify-center items-center gap-2 m-2 py-3 dark:bg-slate-700 px-4 bg-gray-200 rounded-lg">
-              <div class="h-8 w-8 rounded-full bg-slate-500"></div>
-              <p class="text-slate-500 text-sm dark:text-slate-200">{{ $ekstra->guru->nama }}</p>
+  <div id="accordion-arrow-icon" data-accordion="open">
+    <h2 id="accordion-arrow-icon-heading-1">
+      <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-900 bg-gray-100 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-gray-800"
+        data-accordion-target="#accordion-arrow-icon-body-1" aria-expanded="true"
+        aria-controls="accordion-arrow-icon-body-1">
+        <span>Wali Dari Kelas</span>
+        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-arrow-icon-body-1" aria-labelledby="accordion-arrow-icon-heading-1">
+      <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-slate-800">
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <i class="bi bi-house-fill text-slate-50 text-4xl m-3 block"></i>
+          <a href="#">
+            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Kelas
+              {{ $data->kelas->nama . $data->kelas->rincian }}</h5>
+          </a>
+          <section class="flex mt-10">
+            <a type="button" href="/siswa/kelas/{{ $data->kelas->slug }}"
+              class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
+              <i class="bi bi-pencil-square text-lg"></i>
+              Daftar Mahasiswa
             </a>
-            <section class="flex mt-10">
-              <a type="button" href="/siswa/ekstrakulikuler/{{ $ekstra->slug }}"
-                class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
-                <i class="bi bi-card-checklist text-lg"></i>
-                Lihat siswa
-              </a>
-              <button type="button"
-                class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
-                <i class="bi bi-pencil-square text-lg"></i>
-                Ubah
-              </button>
-              <button type="button"
-                class="text-white bg-rose-500 gap-1 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-rose-500 dark:hover:bg-rose-600 dark:focus:ring-rose-500">
-                <i class="bi bi-trash text-lg"></i>
-              </button>
-            </section>
-            </figcaption>
-          </figure>
-        @endforeach
+          </section>
+          </a>
+        </div>
       </div>
-    </section>
-  @else
-    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
-      <div class="text-center">
-        <p class="text-3xl font-semibold text-teal-500">404</p>
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
-        </h1>
-        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan
-        </p>
-      </div>
-    </main>
-  @endif
+    </div>
 
-  {{-- Ekstrakulikuler --}}
+    <h2 id="accordion-arrow-icon-heading-2">
+      <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-gray-800"
+        data-accordion-target="#accordion-arrow-icon-body-2" aria-expanded="false"
+        aria-controls="accordion-arrow-icon-body-2">
+        <span>Ekstrakulikuler yang sedang di bina</span>
+        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-arrow-icon-body-2" class="hidden" aria-labelledby="accordion-arrow-icon-heading-2">
+      <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-slate-800">
+        {{ $data->ekstrakulikuler }}
+      </div>
+    </div>
+  </div>
 @endsection

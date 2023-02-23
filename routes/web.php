@@ -25,6 +25,8 @@ Route::get('/siswa/ekstrakulikuler/{slug}', [SiswaController::class, 'ekstrakuli
 Route::get('/siswa/kelas/{slug}', [SiswaController::class, 'kelas']);
 
 Route::get('/guru', [GuruController::class, 'index']);
+Route::get('/guru/{slug}', [GuruController::class, 'detail']);
+
 Route::get('/ekstrakulikuler', [EkstrakulikulerController::class, 'index']);
 Route::get('/matapelajaran', [MataPelajaranController::class, 'index']);
 Route::get('/kelas', [KelasController::class, 'index']);

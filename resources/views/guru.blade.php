@@ -73,12 +73,13 @@
                       {{ $guru->alamat }}
                     </td>
                     <td class="text-sm text-gray-900 dark:text-slate-100 font-light px-6 py-4 whitespace-nowrap">
-                      {{ $guru->no_telp }}
+                      {{ $guru->no_telepon }}
                     </td>
                     <td class="text-sm text-gray-900 dark:text-slate-100 font-light px-6 py-4 whitespace-nowrap">
                       <div class="h-8 w-8 mx-auto rounded-full bg-slate-500"></div>
                     <td
                       class="text-sm text-gray-900 font-light flex gap-3 justify-center items-center px-6 py-4 whitespace-nowrap">
+                      <a href="/guru/{{ $guru->slug }}"><i class="bi bi-eye text-2xl text-teal-500"></i></a>
                       <a href=""><i class="bi bi-pencil-square text-2xl text-teal-500"></i></a>
                       <a href=""><i class="bi bi-trash text-2xl text-rose-500"></i></a>
                     </td>

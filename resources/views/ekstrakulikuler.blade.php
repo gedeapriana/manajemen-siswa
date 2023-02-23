@@ -66,9 +66,11 @@
     <main class="grid min-h-full place-items-center bg-white dark:bg-slate-700 py-24 px-6 sm:py-32 lg:px-8">
       <div class="text-center">
         <p class="text-3xl font-semibold text-teal-500">404</p>
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-slate-100">{{ $title }} Tidak Ditemukan
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-slate-100">
+          {{ $title }} Tidak Ditemukan
         </h1>
-        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-100">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-100">Maaf, {{ $title }} yang anda cari,
+          tidak kami temukan</p>
       </div>
     </main>
   @endif

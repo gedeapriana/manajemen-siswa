@@ -21,14 +21,16 @@
                 <th scope="col" class="text-sm font-medium text-center text-slate-800 dark:text-slate-100 px-6 py-4">
                   Gambar
                 </th>
-                <th scope="col" class="text-sm flex justify-center font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
+                <th scope="col"
+                  class="text-sm flex justify-center font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                   Aksi
                 </th>
               </tr>
             </thead>
             <tbody>
               @foreach ($data[0]->siswa as $siswa)
-                <tr class="bg-white dark:bg-slate-800 dark:border-b-0 border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                <tr
+                  class="bg-white dark:bg-slate-800 dark:border-b-0 border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-100">
                     {{ $loop->iteration }}
                   </td>
@@ -45,6 +47,7 @@
                   </td>
                   <td
                     class="text-sm text-gray-900 dark:text-slate-100 font-light flex gap-3 justify-center items-center px-6 py-4 whitespace-nowrap">
+                    <a href="/siswa/{{ $siswa->slug }}"><i class="bi bi-eye text-2xl text-teal-500"></i></a>
                     <a href=""><i class="bi bi-pencil-square text-2xl text-teal-500"></i></a>
                     <a href=""><i class="bi bi-trash text-2xl text-rose-500"></i></a>
                   </td>
