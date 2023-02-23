@@ -2,7 +2,7 @@
 
 @section('contents')
   <!-- Jumbotron -->
-  <div class="p-6 my-10 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
+  <div class="p-6 my-10 dark:bg-slate-800 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
     <form class="w-full md:w-3/4 xl:w-1/2">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div class="relative">
@@ -27,54 +27,55 @@
     <div class="flex flex-col">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-          <div class="overflow-hidden">
+          <div class="relative overflow-x-auto rounded-lg">
             <table class="min-w-full">
-              <thead class="bg-white border-b">
+              <thead class="bg-white dark:bg-slate-800 border-b">
                 <tr class="">
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     No
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     Nama Lengkap
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     NIP
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     Alamat
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     No Telepon
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-center">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-center">
                     Gambar
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-center">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-center">
                     Aksi
                   </th>
                 </tr>
               </thead>
               <tbody>
                 @foreach ($data as $guru)
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <tr
+                    class="bg-white dark:bg-slate-800 border-b dark:border-b-0 transition duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-slate-700">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-100">
                       {{ $loop->iteration }}
                     </td>
-                    <td class="text-sm font-bold text-gray-900 px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm font-bold text-gray-900 dark:text-slate-100 px-6 py-4 whitespace-nowrap">
                       <span
-                        class="bg-teal-500 text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-teal-500 dark:text-teal-500">#{{ $guru->id }}</span>{{ $guru->nama }}
+                        class="bg-teal-500 text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-teal-500 dark:text-slate-100">#{{ $guru->id }}</span>{{ $guru->nama }}
                     </td>
                     <td
-                      class="text-sm text-gray-900 font-light flex justify-start items-center px-6 py-4 whitespace-nowrap">
+                      class="text-sm text-gray-900 dark:text-slate-100 font-light flex justify-start items-center px-6 py-4 whitespace-nowrap">
                       {{ $guru->nip }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm text-gray-900 dark:text-slate-100 font-light px-6 py-4 whitespace-nowrap">
                       {{ $guru->alamat }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm text-gray-900 dark:text-slate-100 font-light px-6 py-4 whitespace-nowrap">
                       {{ $guru->no_telp }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm text-gray-900 dark:text-slate-100 font-light px-6 py-4 whitespace-nowrap">
                       <div class="h-8 w-8 mx-auto rounded-full bg-slate-500"></div>
                     <td
                       class="text-sm text-gray-900 font-light flex gap-3 justify-center items-center px-6 py-4 whitespace-nowrap">

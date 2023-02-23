@@ -3,7 +3,7 @@
 @section('contents')
 
   <!-- Jumbotron -->
-  <div class="p-6 my-10 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
+  <div class="p-6 my-10 dark:bg-slate-800 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
     <form class="w-full md:w-3/4 xl:w-1/2">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div class="relative">
@@ -28,18 +28,18 @@
   @if (count($data) > 0)
     <section class="">
       <div
-        class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
+        class="grid mb-8 border border-gray-200 rounded-2xl overflow-hidden shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
         @foreach ($data as $kelas)
           <figure id="__ekstra-card"
-            class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
+            class="flex flex-col items-center dark:bg-slate-800 justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
             style="background-position: center; background-size: cover;">
-            <h1 id="__ekstra-header" class="text-lg">Kelas <span
+            <h1 id="__ekstra-header" class="text-lg dark:text-slate-100">Kelas <span
                 class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-teal-900 dark:text-teal-300">{{ $kelas->nama }}{{ $kelas->rincian }}</span>
             </h1>
             <p id="__ekstra-subheader" class="text-sm text-slate-400">Wali Kelas</p>
-            <a href="/guru/" class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
+            <a href="/guru/" class="flex dark:bg-slate-700 justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
               <div class="h-8 w-8 rounded-full bg-slate-500"></div>
-              <p class="text-slate-500 text-sm">{{ $kelas->guru->nama }}</p>
+              <p class="text-slate-500 text-sm dark:text-slate-100">{{ $kelas->guru->nama }}</p>
             </a>
             <section class="flex mt-10">
               <a type="button" href="/siswa/kelas/{{ $kelas->slug }}"

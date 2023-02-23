@@ -2,8 +2,7 @@
 
 @section('contents')
   <!-- Jumbotron -->
-  <div class="p-6 my-10 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
-
+  <div class="p-6 my-10 dark:bg-slate-800 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
     <form class="w-full md:w-3/4 xl:w-1/2">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div class="relative">
@@ -21,50 +20,51 @@
           class="text-white absolute right-2.5 bottom-2.5 bg-teal-500 hover:bg-teal-500 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-500 dark:hover:bg-teal-500 dark:focus:ring-teal-500">Search</button>
       </div>
     </form>
-
   </div>
   <!-- Jumbotron -->
 
   {{-- table --}}
 
   @if (count($data) > 0)
-    <div class="flex flex-col">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="flex dark:bg-slate-700 flex-col">
+      <div class="overflow-x-auto dark:bg-slate-700 sm:-mx-6 lg:-mx-8">
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-          <div class="overflow-hidden">
+          <div class="relative overflow-x-auto rounded-lg">
             <table class="min-w-full">
-              <thead class="bg-white border-b">
+              <thead class="bg-white dark:bg-slate-800 border-b">
                 <tr class="">
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     No
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     Nama Lengkap
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     Kelas
                   </th>
-                  <th scope="col" class="text-sm font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col" class="text-sm font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     Extrakulikuler
                   </th>
-                  <th scope="col" class="text-sm font-medium text-center text-slate-800 px-6 py-4">
+                  <th scope="col" class="text-sm font-medium text-center text-slate-800 dark:text-slate-100 px-6 py-4">
                     Gambar
                   </th>
-                  <th scope="col" class="text-sm flex justify-center font-medium text-slate-800 px-6 py-4 text-left">
+                  <th scope="col"
+                    class="text-sm flex justify-center font-medium text-slate-800 dark:text-slate-100 px-6 py-4 text-left">
                     Aksi
                   </th>
                 </tr>
               </thead>
               <tbody>
                 @foreach ($data as $siswa)
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <tr
+                    class="bg-white dark:bg-slate-800 border-b dark:border-b-0 transition duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-slate-700">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-100">
                       {{ $loop->iteration }}
                     </td>
-                    <td class="text-sm font-bold text-gray-900 px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm font-bold text-gray-900 dark:text-slate-100 px-6 py-4 whitespace-nowrap">
                       {{ $siswa->nama }}
                     </td>
-                    <td class="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm text-gray-900 dark:text-slate-100 font-bold px-6 py-4 whitespace-nowrap">
                       <span
                         class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">{{ $siswa->kelas->nama ?? '' }}
                         {{ $siswa->kelas->rincian ?? '' }}</span>
@@ -93,12 +93,14 @@
       </div>
     </div>
   @else
-    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
+    <main class="grid min-h-full place-items-center bg-white dark:bg-slate-700 py-24 px-6 sm:py-32 lg:px-8">
       <div class="text-center">
         <p class="text-3xl font-semibold text-teal-500">404</p>
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-slate-100">
+          {{ $title }} Tidak Ditemukan
         </h1>
-        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-100">Maaf, {{ $title }} yang anda cari,
+          tidak kami temukan</p>
       </div>
     </main>
   @endif

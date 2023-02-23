@@ -1,48 +1,48 @@
 @extends('layouts.schema')
 
 @section('contents')
-  <!-- Jumbotron -->
-  <div class="p-6 my-10 flex flex-col justify-between items-center bg-gray-100 text-gray-700 rounded-xl">
+  <!-- Jumbotron -->
+  <div class="p-6 my-10 dark:bg-slate-800 flex flex-col justify-between items-center bg-gray-100 text-gray-700 rounded-xl">
     <section id="" class="w-full flex">
       <div class="w-full flex items-center justify-center gap-4 md:gap-7 xl:w-8/12">
-        <div id="__siswa-foto" class="aspect-[3/4] md:mx-5 md:w-[140px] w-[120px] bg-slate-800"></div>
+        <div id="__siswa-foto" class="aspect-[3/4] md:mx-5 md:w-[140px] w-[120px] bg-slate-800 dark:bg-slate-700"></div>
         <div id="__siswa-detail" class="grow flex">
           <ul class="w-full">
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">Nama Lengkap</h3>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Nama Lengkap</h3>
               <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nama }}</h2>
             </li>
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">Alamat</h3>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Alamat</h3>
               <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->alamat }}</h2>
             </li>
             <li class="w-full border-b-2  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">Tempat, tanggal Lahir</h3>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Tempat, tanggal Lahir</h3>
               <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->tempat_lahir }}, {{ $data->tanggal_lahir }}
               </h2>
             </li>
             <li class="w-full  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">Jenis Kelamin</h3>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Jenis Kelamin</h3>
               <h2 class="text-sm md:text-lg font-bold text-teal-500"> {{ $data->jenis_kelamin }}</h2>
             </li>
           </ul>
           <ul class="w-full hidden xl:inline">
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">NISN</h3>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NISN</h3>
               <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn }}</h2>
             </li>
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">Kelas</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama.$data->kelas->rincian }}</h2>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Kelas</h3>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama . $data->kelas->rincian }}</h2>
             </li>
             <li class="w-full border-b-2  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">No Telepon</h3>
+              <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">No Telepon</h3>
               <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->no_telepon }}</h2>
             </li>
           </ul>
-        </div>
+        </div> 
       </div>
-      <div class="w-full xl:w-4/12 hidden xl:flex justify-center items-center flex-col">
+      <div class="w-full xl:w-4/12 hidden xl:flex gap-3 justify-center items-center flex-col">
         <a type="button" href=""
           class="text-white bg-teal-500 text-sm hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-300 font-medium rounded-full px-5 py-2.5 text-center mr-2 mb-2 dark:bg-teal-500 dark:hover:bg-teal-700 dark:focus:ring-teal-800"><i
             class="bi bi-pencil-square"></i> Modifikasi</a>
@@ -54,23 +54,23 @@
 
     <section class="w-full overflow-hidden flex flex-col md:flex-row xl:hidden">
       <div class="w-full md:w-7/12 overflow-hidden">
-        <ul class="w-full md:mx-5">
+        <ul class="w-full md:mx-5 mb-8">
           <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">NISN</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn }}</h2>
-            </li>
-            <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">Kelas</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama.$data->kelas->rincian }}</h2>
-            </li>
-            <li class="w-full border-b-2  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
-              <h3 class="text-xs md:text-sm text-gray-600">No Telepon</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->no_telepon }}</h2>
-            </li>
+            <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NISN</h3>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn }}</h2>
+          </li>
+          <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
+            <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Kelas</h3>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama . $data->kelas->rincian }}</h2>
+          </li>
+          <li class="w-full border-b-0  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
+            <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">No Telepon</h3>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->no_telepon }}</h2>
+          </li>
         </ul>
       </div>
 
-      <div class="w-full md:w-5/12 md:flex-col flex justify-center p-8 md:p-0 items-center">
+      <div class="w-full md:w-5/12 md:flex-col gap-3 flex justify-center p-8 md:p-0 items-center">
         <a type="button" href=""
           class="text-white bg-teal-500 text-sm hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-300 font-medium rounded-full px-5 py-2.5 text-center mr-2 mb-2 dark:bg-teal-500 dark:hover:bg-teal-700 dark:focus:ring-teal-800"><i
             class="bi bi-pencil-square"></i> Modifikasi</a>
@@ -82,22 +82,23 @@
   </div>
   <!-- Jumbotron -->
 
-	{{-- Ekstrakulikuler --}}
-	<h1 class="text-xl text-center border-b-0  border-gray-200 border-opacity-100  py-5 text-teal-500 font-bold">Ekstrakulikuler yang diikuti</h1>
-	 @if (count($data->ekstrakulikuler) > 0)
+  {{-- Ekstrakulikuler --}}
+  <h1 class="text-xl text-center border-b-0  border-gray-200 border-opacity-100  py-5 text-teal-500 font-bold">
+    Ekstrakulikuler yang diikuti</h1>
+  @if (count($data->ekstrakulikuler) > 0)
     <section class="">
       <div
-        class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
+        class="grid dark:bg-slate-800 rounded-2xl mb-8 border border-gray-200 overflow-hidden shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
         @foreach ($data->ekstrakulikuler as $ekstra)
           <figure id="__ekstra-card"
             class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
             style="background-position: center; background-size: cover;">
-            <h1 id="__ekstra-header" class="text-lg">{{ $ekstra->nama }}</h1>
+            <h1 id="__ekstra-header" class="text-lg dark:text-slate-200">{{ $ekstra->nama }}</h1>
             <p id="__ekstra-subheader" class="text-sm text-slate-400">Dibina oleh</p>
             <a href="/guru/{{ $ekstra->guru->slug }}"
-              class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
+              class="flex justify-center items-center gap-2 m-2 py-3 dark:bg-slate-700 px-4 bg-gray-200 rounded-lg">
               <div class="h-8 w-8 rounded-full bg-slate-500"></div>
-              <p class="text-slate-500 text-sm">{{ $ekstra->guru->nama }}</p>
+              <p class="text-slate-500 text-sm dark:text-slate-200">{{ $ekstra->guru->nama }}</p>
             </a>
             <section class="flex mt-10">
               <a type="button" href="/siswa/ekstrakulikuler/{{ $ekstra->slug }}"
@@ -126,10 +127,11 @@
         <p class="text-3xl font-semibold text-teal-500">404</p>
         <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
         </h1>
-        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan
+        </p>
       </div>
     </main>
   @endif
 
-	{{-- Ekstrakulikuler --}}
+  {{-- Ekstrakulikuler --}}
 @endsection

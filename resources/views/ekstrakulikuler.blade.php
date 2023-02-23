@@ -3,7 +3,7 @@
 @section('contents')
 
   <!-- Jumbotron -->
-  <div class="p-6 my-10 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
+  <div class="p-6 my-10 dark:bg-slate-800 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
     <form class="w-full md:w-3/4 xl:w-1/2">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div class="relative">
@@ -29,17 +29,17 @@
   @if (count($data) > 0)
     <section class="">
       <div
-        class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
+        class="grid mb-8 border overflow-hidden border-gray-200 rounded-2xl shadow-sm dark:border-gray-700 md:mb-12 xl:grid-cols-3 lg:grid-cols-2">
         @foreach ($data as $ekstra)
           <figure id="__ekstra-card"
-            class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
+            class="flex flex-col dark:bg-slate-800 items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
             style="background-position: center; background-size: cover;">
-            <h1 id="__ekstra-header" class="text-lg">{{ $ekstra->nama }}</h1>
+            <h1 id="__ekstra-header" class="text-lg dark:text-slate-100">{{ $ekstra->nama }}</h1>
             <p id="__ekstra-subheader" class="text-sm text-slate-400">Dibina oleh</p>
             <a href="/guru/{{ $ekstra->guru->slug }}"
-              class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
+              class="flex dark:bg-slate-700 justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
               <div class="h-8 w-8 rounded-full bg-slate-500"></div>
-              <p class="text-slate-500 text-sm">{{ $ekstra->guru->nama }}</p>
+              <p class="text-slate-500 text-sm dark:text-slate-100">{{ $ekstra->guru->nama }}</p>
             </a>
             <section class="flex mt-10">
               <a type="button" href="/siswa/ekstrakulikuler/{{ $ekstra->slug }}"
@@ -63,12 +63,12 @@
       </div>
     </section>
   @else
-    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
+    <main class="grid min-h-full place-items-center bg-white dark:bg-slate-700 py-24 px-6 sm:py-32 lg:px-8">
       <div class="text-center">
         <p class="text-3xl font-semibold text-teal-500">404</p>
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-slate-100">{{ $title }} Tidak Ditemukan
         </h1>
-        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-100">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
       </div>
     </main>
   @endif
