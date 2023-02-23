@@ -7,7 +7,11 @@ module.exports = {
 	],
 	darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+			aspectRatio: {
+				'3/4':'3/4',
+			}
+		},
   },
   plugins: [],
 }

@@ -11,16 +11,24 @@ class SiswaController extends Controller
 {
 	public function index(Request $request) {
 		$keyword = $request["cari-siswa"];
-		$data = Siswa::with(['ekstrakulikuler', 'kelas'])->where('nama', 'LIKE', '%'.$keyword.'%')
-																					->orWhere('jabatan', 'LIKE', '%'.$keyword.'%')
-																					->orWhereHas('ekstrakulikuler', function($query) use($keyword) {
-																						$query->where('nama', 'LIKE', '%'.$keyword.'%');
-																					})
-																					->get();
+		$data = Siswa::with(['ekstrakulikuler', 'kelas'])
+						->where('nama', 'LIKE', '%'.$keyword.'%')
+						->orWhereHas('ekstrakulikuler', function($query) use($keyword) {
+								$query->where('nama', 'LIKE', '%'.$keyword.'%');
+							})
+						->get();
 
 		return view('siswa', [
 			'title'=> 'Siswa',
 			'data' => $data
+		]);
+	}
+
+	public function detail($slug) {
+		$data = Siswa::with(['kelas', 'ekstrakulikuler'])->where('slug', $slug)->get();
+		return view('siswa-detail', [
+			'title' => 'Siswa',
+			'data' => $data[0],
 		]);
 	}
 
