@@ -65,11 +65,13 @@
                       {{ $siswa->nama }}
                     </td>
                     <td class="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
-                      <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">{{ $siswa->kelas->nama ?? '' }} {{ $siswa->kelas->rincian ?? ''}}</span>
+                      <span
+                        class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">{{ $siswa->kelas->nama ?? '' }}
+                        {{ $siswa->kelas->rincian ?? '' }}</span>
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4">
                       @foreach ($siswa->ekstrakulikuler as $ekstra)
-                        <a href="/siswa/{{ $ekstra->slug }}"
+                        <a href="/siswa/ekstrakulikuler/{{ $ekstra->slug }}"
                           class="bg-teal-100 inline-block text-teal-800 text-xs my-2 font-medium mr-1 px-2.5 py-0.5 rounded dark:bg-teal-900 dark:text-teal-300">{{ $ekstra->nama }}</a>
                       @endforeach
                     </td>
@@ -78,7 +80,8 @@
                     </td>
                     <td
                       class="text-sm text-gray-900 font-light flex gap-3 justify-center items-center px-6 py-4 whitespace-nowrap">
-                      <a href=""><i class="bi bi-pencil-square text-2xl text-teal-500"></i></a>
+                      <a href="/siswa/{{ $siswa->slug }}"><i class="bi bi-eye text-2xl text-teal-500"></i></a>
+                      <a href=""><i class="bi bi-pencil-square text-2xl text-purple-400"></i></a>
                       <a href=""><i class="bi bi-trash text-2xl text-rose-500"></i></a>
                     </td>
                   </tr>
@@ -90,8 +93,13 @@
       </div>
     </div>
   @else
-    <section class="w-full flex justify-center items-center">
-      <h1 class="text-xl text-center text-slate-50 rounded-xl p-3 bg-rose-500">Siswa tidak ditemukan...</h1>
-    </section>
+    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
+      <div class="text-center">
+        <p class="text-3xl font-semibold text-teal-500">404</p>
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
+        </h1>
+        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+      </div>
+    </main>
   @endif
 @endsection

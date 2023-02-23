@@ -1,7 +1,8 @@
 @extends('layouts.schema')
 
 @section('contents')
- <!-- Jumbotron -->
+
+  <!-- Jumbotron -->
   <div class="p-6 my-10 flex justify-center items-center bg-gray-100 text-gray-700 rounded-xl">
     <form class="w-full md:w-3/4 xl:w-1/2">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -23,7 +24,7 @@
 
   </div>
   <!-- Jumbotron -->
-{{-- cardsection --}}
+  {{-- cardsection --}}
   @if (count($data) > 0)
     <section class="">
       <div
@@ -32,15 +33,16 @@
           <figure id="__ekstra-card"
             class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
             style="background-position: center; background-size: cover;">
-            <h1 id="__ekstra-header" class="text-lg">Kelas <span class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-teal-900 dark:text-teal-300">{{ $kelas->nama }}{{$kelas->rincian}}</span></h1>
+            <h1 id="__ekstra-header" class="text-lg">Kelas <span
+                class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-teal-900 dark:text-teal-300">{{ $kelas->nama }}{{ $kelas->rincian }}</span>
+            </h1>
             <p id="__ekstra-subheader" class="text-sm text-slate-400">Wali Kelas</p>
-            <a href="/guru/"
-              class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
+            <a href="/guru/" class="flex justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
               <div class="h-8 w-8 rounded-full bg-slate-500"></div>
-              <p class="text-slate-500 text-sm">{{ $kelas->guru->nama}}</p>
+              <p class="text-slate-500 text-sm">{{ $kelas->guru->nama }}</p>
             </a>
             <section class="flex mt-10">
-              <a type="button" href=""
+              <a type="button" href="/siswa/kelas/{{ $kelas->slug }}"
                 class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
                 <i class="bi bi-pencil-square text-lg"></i>
                 Daftar Mahasiswa
@@ -61,11 +63,15 @@
       </div>
     </section>
   @else
-    <section class="w-full flex justify-center items-center">
-      <h1 class="text-xl text-center text-slate-50 rounded-xl p-3 bg-rose-500">Kelas tidak ditemukan...</h1>
-    </section>
+    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
+      <div class="text-center">
+        <p class="text-3xl font-semibold text-teal-500">404</p>
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
+        </h1>
+        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+      </div>
+    </main>
   @endif
   {{-- cardsection --}}
-
 
 @endsection

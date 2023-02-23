@@ -90,8 +90,13 @@
       </div>
     </div>
   @else
-    <section class="w-full flex justify-center items-center">
-      <h1 class="text-xl text-center text-slate-50 rounded-xl p-3 bg-rose-500">Siswa tidak ditemukan...</h1>
-    </section>
+    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
+      <div class="text-center">
+        <p class="text-3xl font-semibold text-teal-500">404</p>
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
+        </h1>
+        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan</p>
+      </div>
+    </main>
   @endif
 @endsection
