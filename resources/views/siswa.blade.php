@@ -58,11 +58,14 @@
                 @foreach ($data as $siswa)
                   <tr
                     class="bg-white dark:bg-slate-800 border-b dark:border-b-0 transition duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-slate-700">
+
+                    <input type="hidden" class="delete_id" value="{{ $siswa->id }}">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-slate-100">
                       {{ $loop->iteration }}
                     </td>
                     <td class="text-sm font-bold text-gray-900 dark:text-slate-100 px-6 py-4 whitespace-nowrap">
-                      {{ $siswa->nama }}
+                      <span
+                        class="bg-teal-500 text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-teal-500 dark:text-slate-100">#{{ $siswa->id }}</span>{{ $siswa->nama }}
                     </td>
                     <td class="text-sm text-gray-900 dark:text-slate-100 font-bold px-6 py-4 whitespace-nowrap">
                       <span
@@ -82,7 +85,7 @@
                       class="text-sm text-gray-900 font-light flex gap-3 justify-center items-center px-6 py-4 whitespace-nowrap">
                       <a href="/siswa/{{ $siswa->slug }}"><i class="bi bi-eye text-2xl text-teal-500"></i></a>
                       <a href=""><i class="bi bi-pencil-square text-2xl text-purple-400"></i></a>
-                      <a href=""><i class="bi bi-trash text-2xl text-rose-500"></i></a>
+                      <a href="/siswa/delete/{{$siswa->id}}"><i class="bi bi-trash text-2xl text-rose-400"></i></a>
                     </td>
                   </tr>
                 @endforeach

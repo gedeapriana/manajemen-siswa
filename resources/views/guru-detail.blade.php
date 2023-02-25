@@ -82,7 +82,7 @@
   </div>
   <!-- Jumbotron -->
 
-  <div id="accordion-arrow-icon" data-accordion="open">
+  <div id="accordion-arrow-icon" class="mb-10" data-accordion="open">
     <h2 id="accordion-arrow-icon-heading-1">
       <button type="button"
         class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-900 bg-gray-100 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -99,12 +99,12 @@
     <div id="accordion-arrow-icon-body-1" aria-labelledby="accordion-arrow-icon-heading-1">
       <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-slate-800">
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <i class="bi bi-house-fill text-slate-50 text-4xl m-3 block"></i>
+          <i class="bi bi-house-fill text-teal-500 dark:text-slate-50  text-4xl m-3 block"></i>
           <a href="#">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Kelas
+            <h5 class="mb-1 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Kelas
               {{ $data->kelas->nama . $data->kelas->rincian }}</h5>
           </a>
-          <section class="flex mt-10">
+          <section class="flex mt-5">
             <a type="button" href="/siswa/kelas/{{ $data->kelas->slug }}"
               class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
               <i class="bi bi-pencil-square text-lg"></i>
@@ -131,7 +131,23 @@
     </h2>
     <div id="accordion-arrow-icon-body-2" class="hidden" aria-labelledby="accordion-arrow-icon-heading-2">
       <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-slate-800">
-        {{ $data->ekstrakulikuler }}
+        <div
+          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <i class="bi bi-house-fill text-teal-500 dark:text-slate-50  text-4xl m-3 block"></i>
+          <a href="#">
+            <h5 class="mb-1 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              {{ $data->ekstrakulikuler->nama }}</h5>
+          </a>
+          <section class="flex mt-5">
+            <a type="button" href="/siswa/ekstrakulikuler/{{ $data->ekstrakulikuler->slug }}"
+              class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
+              <i class="bi bi-pencil-square text-lg"></i>
+              Daftar Mahasiswa
+            </a>
+          </section>
+          </a>
+        </div>
+
       </div>
     </div>
   </div>

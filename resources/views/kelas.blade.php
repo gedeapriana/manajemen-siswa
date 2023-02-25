@@ -37,7 +37,7 @@
                 class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-teal-900 dark:text-teal-300">{{ $kelas->nama }}{{ $kelas->rincian }}</span>
             </h1>
             <p id="__ekstra-subheader" class="text-sm text-slate-400">Wali Kelas</p>
-            <a href="/guru/{{$kelas->guru->slug}}"
+            <a href="/guru/{{ $kelas->guru->slug }}"
               class="flex dark:bg-slate-700 justify-center items-center gap-2 m-2 py-3 px-4 bg-gray-200 rounded-lg">
               <div class="h-8 w-8 rounded-full bg-slate-500"></div>
               <p class="text-slate-500 text-sm dark:text-slate-100">{{ $kelas->guru->nama }}</p>

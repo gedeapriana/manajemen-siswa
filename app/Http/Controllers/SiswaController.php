@@ -6,6 +6,7 @@ use App\Models\Ekstrakulikuler;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SiswaController extends Controller
 {
@@ -13,7 +14,7 @@ class SiswaController extends Controller
 		$keyword = $request["cari-siswa"];
 		$data = Siswa::with(['ekstrakulikuler', 'kelas'])
 						->where('nama', 'LIKE', '%'.$keyword.'%')
-						->orWhereHas('ekstrakulikuler', function($query) use($keyword) {
+->orWhereHas('ekstrakulikuler', function($query) use($keyword) {
 								$query->where('nama', 'LIKE', '%'.$keyword.'%');
 							})
 						->get();
@@ -46,5 +47,18 @@ class SiswaController extends Controller
 			'title' => 'Siswa',
 			'data' => $data,
 		]);
+	}
+
+	public function delete ($id) {
+		$data = Siswa::findOrFail($id);
+		return view('siswa-delete', [
+			'title' => 'Siswa',
+			'data' => $data
+		]);
+	}
+
+	public function destroy($id) {
+		$delete = DB::table('siswas')->where('id', $id)->delete();
+		return redirect('/');
 	}
 }

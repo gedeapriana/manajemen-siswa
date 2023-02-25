@@ -10,34 +10,36 @@
           <ul class="w-full">
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Nama Lengkap</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nama }}</h2>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nama ?? '' }}</h2>
             </li>
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Alamat</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->alamat }}</h2>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->alamat ?? '' }}</h2>
             </li>
             <li class="w-full border-b-2  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Tempat, tanggal Lahir</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->tempat_lahir }}, {{ $data->tanggal_lahir }}
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->tempat_lahir ?? '' }},
+                {{ $data->tanggal_lahir ?? '' }}
               </h2>
             </li>
             <li class="w-full  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Jenis Kelamin</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500"> {{ $data->jenis_kelamin }}</h2>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500"> {{ $data->jenis_kelamin ?? '' }}</h2>
             </li>
           </ul>
           <ul class="w-full hidden xl:inline">
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NISN</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn }}</h2>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn ?? '' }}</h2>
             </li>
             <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Kelas</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama . $data->kelas->rincian }}</h2>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">
+                {{ $data->kelas->nama ?? ('' . $data->kelas->rincian ?? '') }}</h2>
             </li>
             <li class="w-full border-b-2  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
               <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">No Telepon</h3>
-              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->no_telepon }}</h2>
+              <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->no_telepon ?? '' }}</h2>
             </li>
           </ul>
         </div>
@@ -57,15 +59,16 @@
         <ul class="w-full md:mx-5 mb-8">
           <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
             <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">NISN</h3>
-            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn }}</h2>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->nisn ?? '' }}</h2>
           </li>
           <li class="w-full border-b-2 border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
             <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">Kelas</h3>
-            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->kelas->nama . $data->kelas->rincian }}</h2>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">
+              {{ $data->kelas->nama ?? ('' . $data->kelas->rincian ?? '') }}</h2>
           </li>
           <li class="w-full border-b-0  border-gray-200 border-opacity-100  py-3 dark:border-opacity-50">
             <h3 class="text-xs md:text-sm text-gray-600 dark:text-slate-200">No Telepon</h3>
-            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->no_telepon }}</h2>
+            <h2 class="text-sm md:text-lg font-bold text-teal-500">{{ $data->no_telepon ?? '' }}</h2>
           </li>
         </ul>
       </div>
@@ -93,15 +96,15 @@
           <figure id="__ekstra-card"
             class="flex flex-col items-center justify-center p-8 text-center border-b border-gray-200 md:border-r dark:border-gray-700"
             style="background-position: center; background-size: cover;">
-            <h1 id="__ekstra-header" class="text-lg dark:text-slate-200">{{ $ekstra->nama }}</h1>
+            <h1 id="__ekstra-header" class="text-lg dark:text-slate-200">{{ $ekstra->nama ?? '' }}</h1>
             <p id="__ekstra-subheader" class="text-sm text-slate-400">Dibina oleh</p>
-            <a href="/guru/{{ $ekstra->guru->slug }}"
+            <a href="/guru/{{ $ekstra->guru->slug ?? '' }}"
               class="flex justify-center items-center gap-2 m-2 py-3 dark:bg-slate-700 px-4 bg-gray-200 rounded-lg">
               <div class="h-8 w-8 rounded-full bg-slate-500"></div>
-              <p class="text-slate-500 text-sm dark:text-slate-200">{{ $ekstra->guru->nama }}</p>
+              <p class="text-slate-500 text-sm dark:text-slate-200">{{ $ekstra->guru->nama ?? '' }}</p>
             </a>
             <section class="flex mt-10">
-              <a type="button" href="/siswa/ekstrakulikuler/{{ $ekstra->slug }}"
+              <a type="button" href="/siswa/ekstrakulikuler/{{ $ekstra->slug ?? '' }}"
                 class="text-white bg-teal-500 gap-1 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-xs px-4 py-2 text-center flex items-center justify-center mr-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500">
                 <i class="bi bi-card-checklist text-lg"></i>
                 Lihat siswa
@@ -125,9 +128,9 @@
     <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
       <div class="text-center">
         <p class="text-3xl font-semibold text-teal-500">404</p>
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title }} Tidak Ditemukan
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ $title ?? '' }} Tidak Ditemukan
         </h1>
-        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title }} yang anda cari, tidak kami temukan
+        <p class="mt-6 text-base leading-7 text-gray-600">Maaf, {{ $title ?? '' }} yang anda cari, tidak kami temukan
         </p>
       </div>
     </main>

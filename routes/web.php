@@ -23,9 +23,12 @@ Route::get('/', [SiswaController::class, 'index']);
 Route::get('/siswa/{slug}', [SiswaController::class, 'detail']);
 Route::get('/siswa/ekstrakulikuler/{slug}', [SiswaController::class, 'ekstrakulikuler']);
 Route::get('/siswa/kelas/{slug}', [SiswaController::class, 'kelas']);
+Route::get('/siswa/delete/{id}', [SiswaController::class, 'delete']);
+Route::delete('/siswa/destroy/{id}', [SiswaController::class, 'destroy']);
 
 Route::get('/guru', [GuruController::class, 'index']);
 Route::get('/guru/{slug}', [GuruController::class, 'detail']);
+Route::get('/guru/delete/{id}', [GuruController::class, 'delete']);
 
 Route::get('/ekstrakulikuler', [EkstrakulikulerController::class, 'index']);
 Route::get('/matapelajaran', [MataPelajaranController::class, 'index']);

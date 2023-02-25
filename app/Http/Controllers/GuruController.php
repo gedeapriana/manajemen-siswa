@@ -27,4 +27,10 @@ class GuruController extends Controller
 			'data' => $data[0],
 		]);
 	}
+
+	public function delete($id) {
+		return view('guru-delete', [
+			'title' => 'Guru',
+		]);
+	}
 }
